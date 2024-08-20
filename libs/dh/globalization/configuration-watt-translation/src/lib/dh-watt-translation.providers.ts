@@ -19,10 +19,10 @@ import { TranslocoService } from '@ngneat/transloco';
 
 import { WattDataIntlService } from '@energinet-datahub/watt/data';
 import { WattFieldIntlService } from '@energinet-datahub/watt/field';
-import { WattPaginatorIntlService } from '@energinet-datahub/watt/paginator';
+import { WattPaginatorIntlService } from '@energinet-datahub/watt/table';
 import { WattClipboardIntlService } from '@energinet-datahub/watt/clipboard';
 import { WattPhoneFieldIntlService } from '@energinet-datahub/watt/phone-field';
-import { WattDatepickerIntlService } from '@energinet-datahub/watt/datepicker';
+import { WattDatepickerIntlService } from '@energinet-datahub/watt/picker/datepicker';
 
 @Injectable()
 export class DhClipboardIntlService extends WattClipboardIntlService {

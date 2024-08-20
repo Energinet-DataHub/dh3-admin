@@ -30,14 +30,17 @@ import { TranslocoPipe, TranslocoService } from '@ngneat/transloco';
 import { Sort, SortDirection } from '@angular/material/sort';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 
-import { VaterStackComponent } from '@energinet-datahub/watt/vater';
+import { VaterStackComponent, VaterSpacerComponent } from '@energinet-datahub/watt/vater';
 import { WATT_CARD } from '@energinet-datahub/watt/card';
-import { WATT_TABLE, WattTableColumnDef, WattTableDataSource } from '@energinet-datahub/watt/table';
-import { WattDatePipe } from '@energinet-datahub/watt/date';
+import {
+  WATT_TABLE,
+  WattTableColumnDef,
+  WattTableDataSource,
+  WattPaginatorComponent,
+} from '@energinet-datahub/watt/table';
+import { WattDatePipe } from '@energinet-datahub/watt/utils/date';
 import { WattEmptyStateComponent } from '@energinet-datahub/watt/empty-state';
-import { WattPaginatorComponent } from '@energinet-datahub/watt/paginator';
 import { WattButtonComponent } from '@energinet-datahub/watt/button';
-import { VaterSpacerComponent } from '@energinet-datahub/watt/vater';
 import { WattToastService } from '@energinet-datahub/watt/toast';
 
 import { EnergyUnitPipe, eoCertificatesRoutePath } from '@energinet-datahub/eo/shared/utilities';

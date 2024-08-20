@@ -33,13 +33,13 @@ import { first, map, Observable, of, tap } from 'rxjs';
 
 import { WattFieldErrorComponent, WattFieldHintComponent } from '@energinet-datahub/watt/field';
 import { WattButtonComponent } from '@energinet-datahub/watt/button';
-import { WattDatepickerComponent } from '@energinet-datahub/watt/datepicker';
-import { WattDatePipe, dayjs } from '@energinet-datahub/watt/date';
+import { WattDatepickerComponent } from '@energinet-datahub/watt/picker/datepicker';
+import { WattDatePipe, dayjs } from '@energinet-datahub/watt/utils/date';
 import { WattDropdownComponent } from '@energinet-datahub/watt/dropdown';
 import { WattEmptyStateComponent } from '@energinet-datahub/watt/empty-state';
 import { WattFilterChipComponent } from '@energinet-datahub/watt/chip';
 import { WattModalComponent, WATT_MODAL } from '@energinet-datahub/watt/modal';
-import { WattRangeValidators } from '@energinet-datahub/watt/validators';
+import { WattRangeValidators } from '@energinet-datahub/watt/utils/validators';
 import { WattSpinnerComponent } from '@energinet-datahub/watt/spinner';
 import { WattToastService } from '@energinet-datahub/watt/toast';
 import { WattValidationMessageComponent } from '@energinet-datahub/watt/validation-message';

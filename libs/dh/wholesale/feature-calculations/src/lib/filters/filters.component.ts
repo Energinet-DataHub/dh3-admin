@@ -29,7 +29,7 @@ import { debounceTime } from 'rxjs';
 
 import { WattFormChipDirective } from '@energinet-datahub/watt/field';
 import { WattButtonComponent } from '@energinet-datahub/watt/button';
-import { WattDateRangeChipComponent } from '@energinet-datahub/watt/datepicker';
+import { WattDateRangeChipComponent } from '@energinet-datahub/watt/picker/datepicker';
 import { WattDropdownComponent } from '@energinet-datahub/watt/dropdown';
 import {
   CalculationOrchestrationState,
@@ -43,7 +43,7 @@ import {
   dhMakeFormControl,
 } from '@energinet-datahub/dh/shared/ui-util';
 import { getGridAreaOptions } from '@energinet-datahub/dh/shared/data-access-graphql';
-import { WattQueryParamsDirective } from '@energinet-datahub/watt/directives';
+import { WattQueryParamsDirective } from '@energinet-datahub/watt/query-params';
 
 // Map query variables type to object of form controls type
 type FormControls<T> = { [P in keyof T]: FormControl<T[P] | null> };

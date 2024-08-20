@@ -24,7 +24,7 @@ import { TranslocoDirective, TranslocoPipe, translate } from '@ngneat/transloco'
 
 import { WATT_TABS } from '@energinet-datahub/watt/tabs';
 import { WATT_CARD } from '@energinet-datahub/watt/card';
-import { WattDatePipe } from '@energinet-datahub/watt/date';
+import { WattDatePipe } from '@energinet-datahub/watt/utils/date';
 import { WattToastService } from '@energinet-datahub/watt/toast';
 import { WattCodeComponent } from '@energinet-datahub/watt/code';
 import { VaterStackComponent } from '@energinet-datahub/watt/vater';
@@ -36,7 +36,6 @@ import {
   WattDescriptionListComponent,
   WattDescriptionListItemComponent,
 } from '@energinet-datahub/watt/description-list';
-
 import {
   DocumentStatus,
   GetOutgoingMessageByIdDocument,

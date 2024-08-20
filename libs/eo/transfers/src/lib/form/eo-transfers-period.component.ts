@@ -21,7 +21,7 @@ import { CommonModule, NgClass } from '@angular/common';
 import { TranslocoPipe } from '@ngneat/transloco';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 
-import { WattDatePipe } from '@energinet-datahub/watt/date';
+import { WattDatePipe } from '@energinet-datahub/watt/utils/date';
 import { WattRadioComponent } from '@energinet-datahub/watt/radio';
 import { WattFieldErrorComponent } from '@energinet-datahub/watt/field';
 import { translations } from '@energinet-datahub/eo/translations';
@@ -156,7 +156,7 @@ interface EoTransfersPeriodForm extends EoTransferFormPeriod {
                         endDate:
                           (error.endDate | wattDate: 'long') ||
                             translations.createTransferAgreementProposal.timeframe.endDate
-                              .noEndDateLabel | transloco
+                              .noEndDateLabel | transloco,
                       }
               }}
             }
@@ -229,7 +229,7 @@ interface EoTransfersPeriodForm extends EoTransferFormPeriod {
                             endDate:
                               (error.endDate | wattDate: 'long') ||
                                 translations.createTransferAgreementProposal.timeframe.endDate
-                                  .noEndDateLabel | transloco
+                                  .noEndDateLabel | transloco,
                           }
                   }}
                 }
@@ -247,7 +247,7 @@ interface EoTransfersPeriodForm extends EoTransferFormPeriod {
                             endDate:
                               (error.endDate | wattDate: 'long') ||
                                 translations.createTransferAgreementProposal.timeframe.endDate
-                                  .noEndDateLabel | transloco
+                                  .noEndDateLabel | transloco,
                           }
                   }}
                 }

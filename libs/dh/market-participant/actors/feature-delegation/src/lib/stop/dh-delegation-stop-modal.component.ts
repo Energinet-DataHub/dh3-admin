@@ -29,12 +29,12 @@ import { distinctUntilKeyChanged } from 'rxjs';
 import { WattToastService } from '@energinet-datahub/watt/toast';
 import { VaterStackComponent } from '@energinet-datahub/watt/vater';
 import { WattButtonComponent } from '@energinet-datahub/watt/button';
-import { WattDatepickerComponent } from '@energinet-datahub/watt/datepicker';
+import { WattDatepickerComponent } from '@energinet-datahub/watt/picker/datepicker';
 import { WATT_MODAL, WattModalComponent, WattTypedModal } from '@energinet-datahub/watt/modal';
 import { parseGraphQLErrorResponse } from '@energinet-datahub/dh/shared/data-access-graphql';
 import { readApiErrorResponse } from '@energinet-datahub/dh/market-participant/data-access-api';
 import { WattRadioComponent } from '@energinet-datahub/watt/radio';
-import { dayjs } from '@energinet-datahub/watt/date';
+import { dayjs } from '@energinet-datahub/watt/utils/date';
 import {
   GetAuditLogByActorIdDocument,
   GetDelegationsForActorDocument,
@@ -54,7 +54,7 @@ import { WattFieldErrorComponent } from '@energinet-datahub/watt/field';
     dh-delegation-stop-modal {
       display: block;
 
-      vater-stack[align="flex-start"] {
+      vater-stack[align='flex-start'] {
         margin-top: var(--watt-space-m);
       }
 

@@ -31,12 +31,16 @@ import {
 import { FormBuilder, ReactiveFormsModule } from '@angular/forms';
 import { TranslocoPipe, TranslocoService } from '@ngneat/transloco';
 
-import { WATT_TABLE, WattTableColumnDef, WattTableDataSource } from '@energinet-datahub/watt/table';
+import {
+  WATT_TABLE,
+  WattTableColumnDef,
+  WattTableDataSource,
+  WattPaginatorComponent,
+} from '@energinet-datahub/watt/table';
 import { WattBadgeComponent } from '@energinet-datahub/watt/badge';
 import { WattButtonComponent } from '@energinet-datahub/watt/button';
-import { WattDatePipe } from '@energinet-datahub/watt/date';
+import { WattDatePipe } from '@energinet-datahub/watt/utils/date';
 import { WattDropdownComponent } from '@energinet-datahub/watt/dropdown';
-import { WattPaginatorComponent } from '@energinet-datahub/watt/paginator';
 import { translations } from '@energinet-datahub/eo/translations';
 import { SharedUtilities } from '@energinet-datahub/eo/shared/utilities';
 
@@ -115,12 +119,12 @@ interface EoTransferTableElement extends EoListedTransfer {
           [options]="[
             {
               value: 'true',
-              displayValue: translations.transfers.activeTransferAgreement | transloco
+              displayValue: translations.transfers.activeTransferAgreement | transloco,
             },
             {
               value: 'false',
-              displayValue: translations.transfers.inactiveTransferAgreement | transloco
-            }
+              displayValue: translations.transfers.inactiveTransferAgreement | transloco,
+            },
           ]"
         />
       </form>

@@ -41,13 +41,13 @@ import {
   PriceType,
 } from '@energinet-datahub/dh/shared/domain/graphql';
 
-import { dayjs } from '@energinet-datahub/watt/date';
+import { dayjs } from '@energinet-datahub/watt/utils/date';
 import { WATT_CARD } from '@energinet-datahub/watt/card';
 import { WattToastService } from '@energinet-datahub/watt/toast';
 import { WattButtonComponent } from '@energinet-datahub/watt/button';
 import { WattFieldErrorComponent } from '@energinet-datahub/watt/field';
-import { WattRangeValidators } from '@energinet-datahub/watt/validators';
-import { WattDatepickerComponent } from '@energinet-datahub/watt/datepicker';
+import { WattRangeValidators } from '@energinet-datahub/watt/utils/validators';
+import { WattDatepickerComponent } from '@energinet-datahub/watt/picker/datepicker';
 import {
   aggregationCalculationTypes,
   getMinDate,
@@ -64,7 +64,6 @@ import {
   DhDropdownTranslatorDirective,
   dhEnumToWattDropdownOptions,
 } from '@energinet-datahub/dh/shared/ui-util';
-
 import { max31DaysDateRangeValidator } from './dh-wholesale-request-calculation-validators';
 import { exists } from '@energinet-datahub/dh/shared/util-operators';
 
