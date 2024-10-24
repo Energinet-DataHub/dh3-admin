@@ -16,6 +16,27 @@
  */
 import '@testing-library/cypress/add-commands';
 
+// declare global {
+//   namespace Cypress {
+//     interface Chainable {
+//       selectOption: (formControlName: string, option: string) => void;
+//     }
+//   }
+// }
+
+
+declare global {
+  // eslint-disable-next-line @typescript-eslint/no-namespace
+  namespace Cypress {
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    interface Chainable<Subject> {
+      typeDateRange: (formControlName: string, start: string, end: string) => void;
+      selectOption: (formControlName: string, option: string) => void;
+      changeUserRole: (userRoleType: string, glnNr: string) => void;
+    }
+  }
+}
+
 function loginViaB2C(email: string, password: string) {
   cy.removeCookieBanner();
   cy.visit('/');
@@ -91,4 +112,25 @@ Cypress.Commands.add('removeCookieBanner', () => {
       path: '/',
     });
   });
+});
+
+Cypress.Commands.add('selectOption', (formControlName, option) => {
+  cy.get(`[id="${formControlName}"]`).click();
+  cy.findByRole('option', { name: option }).click();
+});
+
+Cypress.Commands.add('changeUserRole', (userRoleType, glrNr) => {
+  // Implementer logik her
+  cy.contains('DataHub systemadministrator', { timeout: 10_000 });
+  cy.get('dh-selected-actor').click();
+  cy.get('.gln-label').contains(glrNr).click();
+});
+
+Cypress.Commands.add('typeDateRange', (formControlName, start, end) => {
+  start = start.replace('-', '');
+  end = end.replace('-', '');
+
+  cy.get(`[id="${formControlName}"], input[class="mask-input"]`).type(
+    `${start}${end}`
+  );
 });

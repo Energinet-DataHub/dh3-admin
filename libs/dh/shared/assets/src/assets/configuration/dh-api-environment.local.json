@@ -1,5 +1,5 @@
 {
-  "apiBase": "https://localhost:5001",
+  "apiBase": "https://dev002.b2b.datahub3.dk/bff",
   "getUserActorsUrl": "/v1/MarketParticipantUser/GetUserActors",
   "getTokenUrl": "/v1/Token"
 }
