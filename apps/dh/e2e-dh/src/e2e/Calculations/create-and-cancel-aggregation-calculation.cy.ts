@@ -14,11 +14,14 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+import { time } from 'console';
 import dayjs from 'dayjs';
+import { TIMEOUT } from 'dns';
 
 describe('Create and cancel scheduled calculation Test', () => {
 
   const nextMonth = dayjs().add(1, 'month').format('DD-MM-YYYY');
+  const currentTime = dayjs().format('HH:mm');
 
   it(`Create and cancel scheduled calculation`, () => {
     // Create calculation
@@ -36,7 +39,7 @@ describe('Create and cancel scheduled calculation Test', () => {
     //Schedule calculation
     cy.contains('label', 'Planlæg beregning').find('input[type="radio"]').check();
     cy.get('#watt-datepicker-1 > .watt-field--unlabelled > label > vater-stack > .watt-field-wrapper').type(nextMonth);
-    cy.get('#watt-timepicker-0 > .watt-field--unlabelled > label > vater-stack > .watt-field-wrapper').type('12:00');
+    cy.get('#watt-timepicker-0 > .watt-field--unlabelled > label > vater-stack > .watt-field-wrapper').type(currentTime);
 
     // Verify that the dialog is shown
     cy.get('.watt-modal').should('be.visible');
@@ -53,5 +56,15 @@ describe('Create and cancel scheduled calculation Test', () => {
 
     //Validate the calculation is successful created
     cy.contains('.watt-toast', 'Din beregning er oprettet.').should('be.visible');
+
+    //Cancel scheduled calcualtion
+    cy.get(':nth-child(1) > .cdk-column-executionTime > div.ng-star-inserted > vater-stack.ng-star-inserted > :nth-child(1)', { timeout: 10000} ).contains(nextMonth+', '+currentTime).click();
+    cy.get('watt-drawer-actions.ng-star-inserted > .watt-button--secondary > .mdc-button > .mdc-button__label > .content-wrapper').contains('Annuller beregning').click();
+    cy.get('watt-modal-actions > :nth-child(2) > .mdc-button > .mdc-button__label > .content-wrapper', { timeout: 10000} ).contains('Annuller beregning').click();
+
+    //Validate the calculation han been cancled
+    cy.get('.watt-toast')
+
+    cy.get('.watt-toast', { TIMEOUT: 10000 } ).contains('Din beregning er annulleret.').should('be.visible');
   });
 });
