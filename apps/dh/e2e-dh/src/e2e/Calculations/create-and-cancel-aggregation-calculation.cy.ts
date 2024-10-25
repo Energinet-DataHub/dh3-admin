@@ -63,8 +63,6 @@ describe('Create and cancel scheduled calculation Test', () => {
     cy.get('watt-modal-actions > :nth-child(2) > .mdc-button > .mdc-button__label > .content-wrapper', { timeout: 10000} ).contains('Annuller beregning').click();
 
     //Validate the calculation han been cancled
-    cy.get('.watt-toast')
-
     cy.get('.watt-toast', { TIMEOUT: 10000 } ).contains('Din beregning er annulleret.').should('be.visible');
   });
 });
