@@ -3,6 +3,7 @@
     "baseUrl": ".",
     "sourceMap": false,
     "outDir": "../../../dist/out-tsc",
+    "esModuleInterop": true,
     "allowJs": true,
     "types": ["cypress", "@testing-library/cypress", "node"]
   },
