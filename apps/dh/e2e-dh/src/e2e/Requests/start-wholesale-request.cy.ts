@@ -34,8 +34,8 @@ describe('Start requests Test', () => {
     cy.findByRole('heading', {name: new RegExp('Anmod om beregningsdata', 'i'), });
 
     // Specify the calculation type Engrosfiksering, daterange and meeteringpointtype
-    cy.selectOption('mat-select-value-11', 'Engrosfiksering');
-    cy.selectOption('mat-select-value-5', 'Alle');
+    cy.selectOption('mat-select-value-1', 'Engrosfiksering');
+    cy.selectOption('mat-select-value-5', 'Alle månedssummer');
     cy.typeDateRange('watt-datepicker-0', '01-02-2023', '28-02-2023');
 
     //Create calculation
