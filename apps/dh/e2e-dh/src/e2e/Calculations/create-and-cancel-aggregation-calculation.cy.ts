@@ -14,9 +14,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-//import { time } from 'console';
 import dayjs from 'dayjs';
-//import { TIMEOUT } from 'dns';
 
 describe('Create and cancel scheduled calculation Test', () => {
 
@@ -25,9 +23,8 @@ describe('Create and cancel scheduled calculation Test', () => {
 
   it(`Create and cancel scheduled calculation`, () => {
     // Create calculation
+    // navigate to calculations
     cy.visit('/wholesale/calculations');
-
-    //navigate to calculations
     cy.url().should('include', '/calculations');
 
     // Verify that we are on the correct side
@@ -61,7 +58,6 @@ describe('Create and cancel scheduled calculation Test', () => {
     cy.get('td').contains(nextMonth+', '+currentTime).click();
     cy.get('button').contains('Annuller beregning').click();
     cy.get('watt-modal-actions button').contains('Annuller beregning').click();
-    // cy.get('watt-modal-actions > :nth-child(2) > .mdc-button > .mdc-button__label > .content-wrapper', { timeout: 10000} ).contains('Annuller beregning').click();
 
     //Validate the calculation han been cancled
     cy.get('.watt-toast', { timeout: 10000 } ).contains('Din beregning er annulleret.').should('be.visible');
