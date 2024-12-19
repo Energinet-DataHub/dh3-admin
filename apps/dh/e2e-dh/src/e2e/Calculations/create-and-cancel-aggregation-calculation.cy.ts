@@ -36,31 +36,32 @@ describe('Create and cancel scheduled calculation Test', () => {
     //Open New calculation dialog
     cy.contains('button', 'Ny beregning').click();
 
-    //Schedule calculation
-    cy.contains('label', 'Planlæg beregning').find('input[type="radio"]').check();
-    cy.get('#watt-datepicker-1 > .watt-field--unlabelled > label > vater-stack > .watt-field-wrapper').type(nextMonth);
-    cy.get('#watt-timepicker-0 > .watt-field--unlabelled > label > vater-stack > .watt-field-wrapper').type(currentTime);
-
     // Verify that the dialog is shown
     cy.get('.watt-modal').should('be.visible');
 
     // Choose the chip button "Ekstern" i the dialog
-    cy.get('watt-filter-chip').contains('Ekstern').click();
+    cy.get('[data-testid="calculation-external"]').click();
 
-    // Specify the calculation type Aggregering, daterange and
+    //Schedule calculation
+    cy.contains('label', 'Planlæg beregning').find('input[type="radio"]').check();
+    cy.get('[data-testid="scheduleCalculation.date"] input').type(nextMonth + currentTime);
+    cy.contains('label', 'Planlæg beregning').find('input[type="radio"]').click();
+
+    // Specify the calculation type Aggregering, daterange
     cy.selectOption('mat-select-0', 'Aggregering');
     cy.typeDateRange('watt-datepicker-0', '01-02-2023', '28-02-2023');
 
     //Create calculation
-    cy.findByRole('button', {name: new RegExp('Opret beregning','i')}).click();
+    cy.findByRole('button', {name:'Opret beregning'}).click();
 
     //Validate the calculation is successful created
     cy.contains('.watt-toast', 'Din beregning er oprettet.').should('be.visible');
 
     //Cancel scheduled calcualtion
-    cy.get(':nth-child(1) > .cdk-column-executionTime > div.ng-star-inserted > vater-stack.ng-star-inserted > :nth-child(1)', { timeout: 10000} ).contains(nextMonth+', '+currentTime).click();
-    cy.get('watt-drawer-actions.ng-star-inserted > .watt-button--secondary > .mdc-button > .mdc-button__label > .content-wrapper').contains('Annuller beregning').click();
-    cy.get('watt-modal-actions > :nth-child(2) > .mdc-button > .mdc-button__label > .content-wrapper', { timeout: 10000} ).contains('Annuller beregning').click();
+    cy.get('td').contains(nextMonth+', '+currentTime).click();
+    cy.get('button').contains('Annuller beregning').click();
+    cy.get('watt-modal-actions button').contains('Annuller beregning').click();
+    // cy.get('watt-modal-actions > :nth-child(2) > .mdc-button > .mdc-button__label > .content-wrapper', { timeout: 10000} ).contains('Annuller beregning').click();
 
     //Validate the calculation han been cancled
     cy.get('.watt-toast', { timeout: 10000 } ).contains('Din beregning er annulleret.').should('be.visible');

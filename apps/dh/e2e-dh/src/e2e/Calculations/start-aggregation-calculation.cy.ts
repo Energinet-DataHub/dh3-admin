@@ -36,7 +36,7 @@ describe('Start calculation Test', () => {
     cy.get('.watt-modal').should('be.visible');
 
     // Choose the chip button "Ekstern" i the dialog
-    cy.get('watt-filter-chip').contains('Ekstern').click();
+    cy.get('[data-testid="calculation-external"]').click();
 
     // Specify the calculation type Aggregering, daterange and
     cy.selectOption('mat-select-0', 'Aggregering');
